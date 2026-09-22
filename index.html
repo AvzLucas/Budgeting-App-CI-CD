@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calcule um orçamento de serviços por hora, com desconto." />
+  <title>Calculadora de orçamento</title>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">ORÇAMENTO DE SERVIÇOS</p><h1>Seu trabalho,<br />na ponta do lápis.</h1><p>Informe o valor da sua hora e o tempo estimado para preparar um orçamento.</p></header>
+    <div class="layout">
+      <form id="budget-form">
+        <h2>Detalhes do serviço</h2>
+        <label for="hourly-rate">Valor por hora (R$)</label>
+        <input id="hourly-rate" name="hourlyRate" type="number" min="0" max="1000000" step="0.01" value="100" required />
+        <label for="hours">Quantidade de horas</label>
+        <input id="hours" name="hours" type="number" min="0" max="100000" step="0.01" value="8" required />
+        <label for="discount">Desconto (%)</label>
+        <input id="discount" name="discountPercent" type="number" min="0" max="100" step="0.01" value="10" required />
+        <button type="submit">Calcular orçamento <span aria-hidden="true">→</span></button>
+        <p id="error" role="alert" hidden></p>
+      </form>
+      <section class="summary" aria-labelledby="summary-title">
+        <p class="eyebrow">RESUMO</p><h2 id="summary-title">Seu orçamento</h2>
+        <div id="result" aria-live="polite" aria-atomic="true">
+          <dl><div><dt>Subtotal</dt><dd id="subtotal">—</dd></div><div><dt>Desconto</dt><dd id="discount-amount">—</dd></div></dl>
+          <p class="total-label">Valor total</p><p id="total" class="total">—</p>
+        </div>
+        <p class="note">Estimativa em reais, sem impostos ou custos adicionais. Valores arredondados para centavos.</p>
+      </section>
+    </div>
+    <footer>Uma ferramenta simples para planejar seu próximo serviço.</footer>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
